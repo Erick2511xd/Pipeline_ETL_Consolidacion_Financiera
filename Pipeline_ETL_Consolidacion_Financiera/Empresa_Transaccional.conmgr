@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Empresa_Transaccional"
+  DTS:DTSID="{2440F37F-FFF5-45F7-B890-9B704CC7795F}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=localhost;Initial Catalog=Empresa_Transaccional;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Pipeline_ETL_Consolidacion_Financiera-{2440F37F-FFF5-45F7-B890-9B704CC7795F}localhost.Empresa_Transaccional;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

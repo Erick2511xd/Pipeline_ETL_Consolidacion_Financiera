@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37614.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Pipeline_ETL_Consolidacion_Financiera", "Pipeline_ETL_Consolidacion_Financiera\Pipeline_ETL_Consolidacion_Financiera.dtproj", "{231B4561-0EC0-5379-5A6E-268B1BE0E288}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{231B4561-0EC0-5379-5A6E-268B1BE0E288}.Development|Default.ActiveCfg = Development
+		{231B4561-0EC0-5379-5A6E-268B1BE0E288}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {284238CE-B5A3-4192-A7BA-7C52DEBD98BF}
+	EndGlobalSection
+EndGlobal
