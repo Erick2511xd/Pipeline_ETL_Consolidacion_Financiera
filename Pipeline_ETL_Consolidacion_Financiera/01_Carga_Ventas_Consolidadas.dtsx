@@ -12,8 +12,8 @@
   DTS:ObjectName="01_Carga_Ventas_Consolidadas"
   DTS:PackageType="5"
   DTS:TransactionOption="0"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{9CB2EC5D-5344-4892-8831-88B68F64770F}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{0980DEFE-C754-419A-A0D2-F98839E1CE6F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -33,11 +33,408 @@
           version="1">
           <components>
             <component
-              refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas"
+              refId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DC_Estandarizar_Tipos_Texto"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Inputs[Data Conversion Input].Columns[Monto_Texto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Monto_Texto"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Monto_Texto]" />
+                    <inputColumn
+                      refId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Inputs[Data Conversion Input].Columns[Fecha_Texto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Fecha_Texto"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Fecha_Texto]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]"
+                      name="Copia de Monto_Texto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Monto_Texto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output].Columns[Copy of Fecha_Texto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output].Columns[Copy of Fecha_Texto]"
+                      name="Copy of Fecha_Texto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Fecha_Texto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER_Limpieza_Y_Conversion_Moneda"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Inputs[Derived Column Input].Columns[Codigo_Moneda]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Codigo_Moneda"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]" />
+                    <inputColumn
+                      refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Inputs[Derived Column Input].Columns[Copia de Monto_Texto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copia de Monto_Texto"
+                      lineageId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]" />
+                    <inputColumn
+                      refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Inputs[Derived Column Input].Columns[Copy of Fecha_Texto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Fecha_Texto"
+                      lineageId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output].Columns[Copy of Fecha_Texto]" />
+                    <inputColumn
+                      refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Inputs[Derived Column Input].Columns[Factor_Conversion]"
+                      cachedDataType="numeric"
+                      cachedName="Factor_Conversion"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      lineageId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup Match Output].Columns[Factor_Conversion]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Output].Columns[Monto_PEN]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Output].Columns[Monto_PEN]"
+                      name="Monto_PEN"
+                      precision="30"
+                      scale="8"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]} == "BRL" ? (DT_CY)([REPLACE](#{Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]},",",".")) * #{Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup Match Output].Columns[Factor_Conversion]} : (DT_CY)([REPLACE](#{Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]},",","."))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Codigo_Moneda == "BRL" ? (DT_CY)(REPLACE([Copia de Monto_Texto],",",".")) * Factor_Conversion : (DT_CY)(REPLACE([Copia de Monto_Texto],",","."))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Output].Columns[Fecha_Estandar]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Output].Columns[Fecha_Estandar]"
+                      name="Fecha_Estandar"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)([REPLACE](#{Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output].Columns[Copy of Fecha_Texto]},"/","-"))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)(REPLACE([Copy of Fecha_Texto],"/","-"))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LK_Factor_Tipo_Cambio"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [Datawarehouse].[Dim_Tipo_Cambio]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [Datawarehouse].[Dim_Tipo_Cambio]) [refTable]
+where [refTable].[Codigo_Moneda] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Codigo_Moneda" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Factor_Conversion" dataType="DT_NUMERIC" length="0" precision="10" scale="4" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Connections[OleDbConnection]"
+                  connectionManagerID="{A22C31AA-6476-4A30-99E1-506FF0F40F9D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Empresa_DataWarehouse]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Inputs[Lookup Input].Columns[Codigo_Moneda]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Codigo_Moneda"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Codigo_Moneda</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup Match Output].Columns[Factor_Conversion]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup Match Output].Columns[Factor_Conversion]"
+                      name="Factor_Conversion"
+                      precision="10"
+                      scale="4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Factor_Conversion</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Carga Fact Ventas Consolidadas"
+              name="OLEDBD_Fact_Ventas_Consolidadas"
               usesDispositions="true"
               version="4">
               <properties>
@@ -90,7 +487,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Connections[OleDbConnection]"
+                  refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Connections[OleDbConnection]"
                   connectionManagerID="{A22C31AA-6476-4A30-99E1-506FF0F40F9D}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Empresa_DataWarehouse]"
                   description="The OLE DB runtime connection used to access the database."
@@ -98,77 +495,77 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input]"
+                  refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].Columns[Monto_PEN]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].Columns[Monto_PEN]"
                       cachedDataType="numeric"
                       cachedName="Monto_PEN"
                       cachedPrecision="30"
                       cachedScale="8"
-                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Monto_PEN]"
-                      lineageId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Output].Columns[Monto_PEN]" />
+                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Monto_PEN]"
+                      lineageId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Output].Columns[Monto_PEN]" />
                     <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].Columns[Fecha_Estandar]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].Columns[Fecha_Estandar]"
                       cachedDataType="dbDate"
                       cachedName="Fecha_Estandar"
-                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Estandar]"
-                      lineageId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Output].Columns[Fecha_Estandar]" />
+                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Estandar]"
+                      lineageId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Output].Columns[Fecha_Estandar]" />
                     <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].Columns[ID_Venta]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].Columns[ID_Venta]"
                       cachedDataType="i4"
                       cachedName="ID_Venta"
-                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[ID_Original]"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[ID_Venta]" />
+                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[ID_Original]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[ID_Venta]" />
                     <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].Columns[Codigo_Moneda]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].Columns[Codigo_Moneda]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
                       cachedName="Codigo_Moneda"
-                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Codigo_Moneda_Origen]"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]" />
+                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Codigo_Moneda_Origen]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]" />
                     <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].Columns[Copia de Monto_Texto]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].Columns[Copia de Monto_Texto]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Copia de Monto_Texto"
-                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Monto_Original]"
-                      lineageId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]" />
+                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Monto_Original]"
+                      lineageId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[ID_Fact_Venta]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[ID_Fact_Venta]"
                       dataType="i4"
                       name="ID_Fact_Venta" />
                     <externalMetadataColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[ID_Original]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[ID_Original]"
                       dataType="i4"
                       name="ID_Original" />
                     <externalMetadataColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Codigo_Moneda_Origen]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Codigo_Moneda_Origen]"
                       codePage="1252"
                       dataType="str"
                       length="3"
                       name="Codigo_Moneda_Origen" />
                     <externalMetadataColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Monto_Original]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Monto_Original]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Monto_Original" />
                     <externalMetadataColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Monto_PEN]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Monto_PEN]"
                       dataType="cy"
                       name="Monto_PEN" />
                     <externalMetadataColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Estandar]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Estandar]"
                       dataType="dbDate"
                       name="Fecha_Estandar" />
                   </externalMetadataColumns>
@@ -176,22 +573,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -200,246 +597,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Carga Ventas Consolidadas\Conversión de datos"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Conversión de datos"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Carga Ventas Consolidadas\Conversión de datos.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Conversión de datos.Inputs[Data Conversion Input].Columns[Monto_Texto]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Monto_Texto"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Monto_Texto]" />
-                    <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Conversión de datos.Inputs[Data Conversion Input].Columns[Fecha_Texto]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Fecha_Texto"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Fecha_Texto]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Carga Ventas Consolidadas\Conversión de datos.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]"
-                      name="Copia de Monto_Texto"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Monto_Texto]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output].Columns[Copy of Fecha_Texto]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output].Columns[Copy of Fecha_Texto]"
-                      name="Copy of Fecha_Texto"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Fecha_Texto]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Carga Ventas Consolidadas\Conversión de datos.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Carga Ventas Consolidadas\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Carga Ventas Consolidadas\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Derived Column.Inputs[Derived Column Input].Columns[Codigo_Moneda]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="Codigo_Moneda"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]" />
-                    <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Derived Column.Inputs[Derived Column Input].Columns[Copia de Monto_Texto]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Copia de Monto_Texto"
-                      lineageId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]" />
-                    <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Derived Column.Inputs[Derived Column Input].Columns[Copy of Fecha_Texto]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Copy of Fecha_Texto"
-                      lineageId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output].Columns[Copy of Fecha_Texto]" />
-                    <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Derived Column.Inputs[Derived Column Input].Columns[Factor_Conversion]"
-                      cachedDataType="numeric"
-                      cachedName="Factor_Conversion"
-                      cachedPrecision="10"
-                      cachedScale="4"
-                      lineageId="Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup Match Output].Columns[Factor_Conversion]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Carga Ventas Consolidadas\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Output].Columns[Monto_PEN]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Output].Columns[Monto_PEN]"
-                      name="Monto_PEN"
-                      precision="30"
-                      scale="8"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">#{Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]} == "BRL" ? (DT_CY)([REPLACE](#{Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]},",",".")) * #{Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup Match Output].Columns[Factor_Conversion]} : (DT_CY)([REPLACE](#{Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output].Columns[Copia de Monto_Texto]},",","."))</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">Codigo_Moneda == "BRL" ? (DT_CY)(REPLACE([Copia de Monto_Texto],",",".")) * Factor_Conversion : (DT_CY)(REPLACE([Copia de Monto_Texto],",","."))</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Output].Columns[Fecha_Estandar]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Output].Columns[Fecha_Estandar]"
-                      name="Fecha_Estandar"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_DBDATE)([REPLACE](#{Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output].Columns[Copy of Fecha_Texto]},"/","-"))</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_DBDATE)(REPLACE([Copy of Fecha_Texto],"/","-"))</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Carga Ventas Consolidadas\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas"
+              refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="Leer Ventas Crudas"
+              name="OLEDBS_Ventas_Crudas"
               usesDispositions="true"
               version="7">
               <properties>
@@ -484,7 +646,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Connections[OleDbConnection]"
+                  refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Connections[OleDbConnection]"
                   connectionManagerID="{2440F37F-FFF5-45F7-B890-9B704CC7795F}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Empresa_Transaccional]"
                   description="The OLE DB runtime connection used to access the database."
@@ -492,72 +654,72 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output]"
+                  refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[ID_Venta]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[ID_Venta]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].ExternalColumns[ID_Venta]"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[ID_Venta]"
+                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].ExternalColumns[ID_Venta]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[ID_Venta]"
                       name="ID_Venta"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].ExternalColumns[Codigo_Moneda]"
+                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].ExternalColumns[Codigo_Moneda]"
                       length="3"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]"
                       name="Codigo_Moneda"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Monto_Texto]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Monto_Texto]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].ExternalColumns[Monto_Texto]"
+                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].ExternalColumns[Monto_Texto]"
                       length="50"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Monto_Texto]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Monto_Texto]"
                       name="Monto_Texto"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Fecha_Texto]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Fecha_Texto]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].ExternalColumns[Fecha_Texto]"
+                      externalMetadataColumnId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].ExternalColumns[Fecha_Texto]"
                       length="50"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Fecha_Texto]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].Columns[Fecha_Texto]"
                       name="Fecha_Texto"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].ExternalColumns[ID_Venta]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].ExternalColumns[ID_Venta]"
                       dataType="i4"
                       name="ID_Venta" />
                     <externalMetadataColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].ExternalColumns[Codigo_Moneda]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].ExternalColumns[Codigo_Moneda]"
                       codePage="1252"
                       dataType="str"
                       length="3"
                       name="Codigo_Moneda" />
                     <externalMetadataColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].ExternalColumns[Monto_Texto]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].ExternalColumns[Monto_Texto]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Monto_Texto" />
                     <externalMetadataColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].ExternalColumns[Fecha_Texto]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output].ExternalColumns[Fecha_Texto]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -565,208 +727,46 @@
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[ID_Venta]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[ID_Venta]"
                       dataType="i4"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[ID_Venta]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[ID_Venta]"
                       name="ID_Venta" />
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[Codigo_Moneda]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[Codigo_Moneda]"
                       codePage="1252"
                       dataType="str"
                       length="3"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[Codigo_Moneda]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[Codigo_Moneda]"
                       name="Codigo_Moneda" />
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[Monto_Texto]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[Monto_Texto]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[Monto_Texto]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[Monto_Texto]"
                       name="Monto_Texto" />
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[Fecha_Texto]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[Fecha_Texto]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[Fecha_Texto]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[Fecha_Texto]"
                       name="Fecha_Texto" />
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Carga Ventas Consolidadas\Lookup"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [Datawarehouse].[Dim_Tipo_Cambio]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [Datawarehouse].[Dim_Tipo_Cambio]) [refTable]
-where [refTable].[Codigo_Moneda] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Codigo_Moneda" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Factor_Conversion" dataType="DT_NUMERIC" length="0" precision="10" scale="4" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Carga Ventas Consolidadas\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="{A22C31AA-6476-4A30-99E1-506FF0F40F9D}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Empresa_DataWarehouse]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Carga Ventas Consolidadas\Lookup.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Carga Ventas Consolidadas\Lookup.Inputs[Lookup Input].Columns[Codigo_Moneda]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="Codigo_Moneda"
-                      lineageId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output].Columns[Codigo_Moneda]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Codigo_Moneda</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="IgnoreFailure"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Carga Ventas Consolidadas\Lookup.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup Match Output].Columns[Factor_Conversion]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup Match Output].Columns[Factor_Conversion]"
-                      name="Factor_Conversion"
-                      precision="10"
-                      scale="4"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Factor_Conversion</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Carga Ventas Consolidadas\Lookup.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Carga Ventas Consolidadas\Lookup.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -778,24 +778,24 @@ where [refTable].[Codigo_Moneda] = ?</property>
           <paths>
             <path
               refId="Package\Carga Ventas Consolidadas.Paths[Data Conversion Output]"
-              endId="Package\Carga Ventas Consolidadas\Lookup.Inputs[Lookup Input]"
+              endId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Inputs[Lookup Input]"
               name="Data Conversion Output"
-              startId="Package\Carga Ventas Consolidadas\Conversión de datos.Outputs[Data Conversion Output]" />
+              startId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Carga Ventas Consolidadas.Paths[Derived Column Output]"
-              endId="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas.Inputs[OLE DB Destination Input]"
+              endId="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
-              startId="Package\Carga Ventas Consolidadas\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Outputs[Derived Column Output]" />
             <path
               refId="Package\Carga Ventas Consolidadas.Paths[Lookup Match Output]"
-              endId="Package\Carga Ventas Consolidadas\Derived Column.Inputs[Derived Column Input]"
+              endId="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda.Inputs[Derived Column Input]"
               name="Lookup Match Output"
-              startId="Package\Carga Ventas Consolidadas\Lookup.Outputs[Lookup Match Output]" />
+              startId="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Carga Ventas Consolidadas.Paths[OLE DB Source Output]"
-              endId="Package\Carga Ventas Consolidadas\Conversión de datos.Inputs[Data Conversion Input]"
+              endId="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
-              startId="Package\Carga Ventas Consolidadas\Leer Ventas Crudas.Outputs[OLE DB Source Output]" />
+              startId="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -826,27 +826,39 @@ where [refTable].[Codigo_Moneda] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="150,42"
-          Id="Package\Carga Ventas Consolidadas\Leer Ventas Crudas"
+          Size="193,42"
+          Id="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas"
           TopLeft="196,7.55555555555556" />
         <NodeLayout
-          Size="148,42"
-          Id="Package\Carga Ventas Consolidadas\Conversión de datos"
+          Size="220,42"
+          Id="Package\Carga Ventas Consolidadas\DC_Estandarizar_Tipos_Texto"
           TopLeft="200,93.3333333333333" />
         <EdgeLayout
           Id="Package\Carga Ventas Consolidadas.Paths[OLE DB Source Output]"
-          TopLeft="272.5,49.5555555555556">
+          TopLeft="292.5,49.5555555555556">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.7777777777778"
+              EndConnector="17.5,43.7777777777778"
               Start="0,0"
-              End="0,36.2777777777778">
+              End="17.5,36.2777777777778">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.2777777777778" />
+                    End="0,17.8888888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.8888888888889"
+                    Point2="0,21.8888888888889"
+                    Point3="4,21.8888888888889" />
+                  <mssgle:LineSegment
+                    End="13.5,21.8888888888889" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,21.8888888888889"
+                    Point2="17.5,21.8888888888889"
+                    Point3="17.5,25.8888888888889" />
+                  <mssgle:LineSegment
+                    End="17.5,36.2777777777778" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -856,12 +868,12 @@ where [refTable].[Codigo_Moneda] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="113,42"
-          Id="Package\Carga Ventas Consolidadas\Lookup"
+          Size="193,42"
+          Id="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio"
           TopLeft="220,173.333333333333" />
         <EdgeLayout
           Id="Package\Carga Ventas Consolidadas.Paths[Data Conversion Output]"
-          TopLeft="275.25,135.333333333333">
+          TopLeft="313.25,135.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -882,12 +894,12 @@ where [refTable].[Codigo_Moneda] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="154,42"
-          Id="Package\Carga Ventas Consolidadas\Derived Column"
+          Size="258,42"
+          Id="Package\Carga Ventas Consolidadas\DER_Limpieza_Y_Conversion_Moneda"
           TopLeft="194.444444444444,253.333333333333" />
         <EdgeLayout
           Id="Package\Carga Ventas Consolidadas.Paths[Lookup Match Output]"
-          TopLeft="273.972222222222,215.333333333333">
+          TopLeft="319.972222222222,215.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -910,18 +922,18 @@ where [refTable].[Codigo_Moneda] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="229,42"
-          Id="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas"
+          Size="249,42"
+          Id="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas"
           TopLeft="177.777777777778,341.111111111111" />
         <EdgeLayout
           Id="Package\Carga Ventas Consolidadas.Paths[Derived Column Output]"
-          TopLeft="271.444444444444,295.333333333333">
+          TopLeft="323.444444444444,295.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="20.8333333333334,45.7777777777778"
+              EndConnector="-21.1666666666666,45.7777777777778"
               Start="0,0"
-              End="20.8333333333334,38.2777777777778">
+              End="-21.1666666666666,38.2777777777778">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -930,15 +942,15 @@ where [refTable].[Codigo_Moneda] = ?</property>
                   <mssgle:CubicBezierSegment
                     Point1="0,18.8888888888889"
                     Point2="0,22.8888888888889"
-                    Point3="4,22.8888888888889" />
+                    Point3="-4,22.8888888888889" />
                   <mssgle:LineSegment
-                    End="16.8333333333334,22.8888888888889" />
+                    End="-17.1666666666666,22.8888888888889" />
                   <mssgle:CubicBezierSegment
-                    Point1="16.8333333333334,22.8888888888889"
-                    Point2="20.8333333333334,22.8888888888889"
-                    Point3="20.8333333333334,26.8888888888889" />
+                    Point1="-17.1666666666666,22.8888888888889"
+                    Point2="-21.1666666666666,22.8888888888889"
+                    Point3="-21.1666666666666,26.8888888888889" />
                   <mssgle:LineSegment
-                    End="20.8333333333334,38.2777777777778" />
+                    End="-21.1666666666666,38.2777777777778" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -951,7 +963,7 @@ where [refTable].[Codigo_Moneda] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga Ventas Consolidadas\Leer Ventas Crudas">
+    design-time-name="Package\Carga Ventas Consolidadas\OLEDBS_Ventas_Crudas">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -964,7 +976,7 @@ where [refTable].[Codigo_Moneda] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga Ventas Consolidadas\Lookup">
+    design-time-name="Package\Carga Ventas Consolidadas\LK_Factor_Tipo_Cambio">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -987,7 +999,7 @@ where [refTable].[Codigo_Moneda] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga Ventas Consolidadas\Carga Fact Ventas Consolidadas">
+    design-time-name="Package\Carga Ventas Consolidadas\OLEDBD_Fact_Ventas_Consolidadas">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
