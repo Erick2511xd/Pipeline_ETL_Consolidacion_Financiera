@@ -80,15 +80,15 @@ GO
 
 ## 🖼️ Evidencia de Ejecución
 
-### 1. Flujo de datos (Data Flow)
-Los cinco componentes terminaron en verde.
-
-![Data Flow ejecutado correctamente](evidencias/01_flujo_ssis.png)
-
-### 2. Ejecución del paquete (Control Flow)
+### 1. Ejecución del paquete (Control Flow)
 El paquete `01_Carga_Ventas_Consolidadas.dtsx` se ejecutó completo, sin errores.
 
-![Control Flow con ejecución exitosa](evidencias/02_ejecucion_exitosa.png)
+![Control Flow con ejecución exitosa](evidencias/01_control_flow.png)
+
+### 2. Flujo de datos (Data Flow)
+Los cinco componentes terminaron en verde.
+
+![Data Flow ejecutado correctamente](evidencias/02_data_flow.png)
 
 ### 3. Lógica de limpieza y conversión (Derived Column)
 Expresiones de `Monto_PEN` y `Fecha_Estandar` en el editor de SSIS.
